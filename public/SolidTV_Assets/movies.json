@@ -1,0 +1,46 @@
+[
+  {
+    "id": "night",
+    "title": "Night in the City",
+    "genre": "Drama",
+    "description": "A journalist follows a lead that could change her city. One night, one secret, and a choice that changes everything.",
+    "year": 2025,
+    "duration": "1 h 48 min",
+    "hero": "/SolidTV_Assets/images/heroes/noche.png",
+    "poster": "/SolidTV_Assets/images/posters/noche.png",
+    "recommendedOrder": 3
+  },
+  {
+    "id": "orbit",
+    "title": "Orbit",
+    "genre": "Sci-fi",
+    "description": "An unexpected signal transforms a mission among the stars. Far from home, the unknown is about to answer.",
+    "year": 2026,
+    "duration": "2 h 06 min",
+    "hero": "/SolidTV_Assets/images/heroes/orbita.png",
+    "poster": "/SolidTV_Assets/images/posters/orbita.png",
+    "recommendedOrder": 4
+  },
+  {
+    "id": "final-play",
+    "title": "The Final Play",
+    "genre": "Sports",
+    "description": "A team on the verge of giving up gets one last chance. Sometimes, victory begins long before the final whistle.",
+    "year": 2025,
+    "duration": "1 h 52 min",
+    "hero": "/SolidTV_Assets/images/heroes/jugada.png",
+    "poster": "/SolidTV_Assets/images/posters/jugada.png",
+    "recommendedOrder": 2
+  },
+  {
+    "id": "origin",
+    "title": "Origin",
+    "genre": "Adventure",
+    "description": "A forgotten map leads an explorer to a lost city. Uncovering its origins will change everything she thought she knew.",
+    "year": 2026,
+    "duration": "1 h 58 min",
+    "hero": "/SolidTV_Assets/images/heroes/origen.png",
+    "poster": "/SolidTV_Assets/images/posters/origen.png",
+    "recommendedOrder": 1
+  }
+]
