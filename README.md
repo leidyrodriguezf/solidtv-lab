@@ -1,32 +1,32 @@
 # Solid Lab
 
-Repo educativo para aprender **SolidJS** y **SolidTV** (`@solidtv/solid`) con ejemplos interactivos.
+Educational repo for learning **SolidJS** and **SolidTV** (`@solidtv/solid`) with interactive examples.
 
-## ¿Qué es SolidJS?
+## What is SolidJS?
 
-SolidJS es un framework reactivo para interfaces de usuario. A diferencia de React, no usa Virtual DOM — las actualizaciones son granulares y se aplican directamente donde se necesitan, lo que lo hace extremadamente rápido.
+SolidJS is a reactive framework for user interfaces. Unlike React, it doesn't use a Virtual DOM — updates are granular and applied directly where needed, making it extremely fast.
 
-## ¿Qué es SolidTV / @solidtv/solid?
+## What is SolidTV / @solidtv/solid?
 
-`@solidtv/solid` es un fork de `@lightningtv/solid` mantenido por el equipo para aplicaciones de TV (Smart TVs, set-top boxes). Renderiza sobre un canvas WebGL en lugar del DOM. Este fork mantiene compatibilidad con **Chromium 47** (Samsung Tizen TVs), a diferencia del upstream que requiere navegadores modernos.
+`@solidtv/solid` is a fork of `@lightningtv/solid` maintained by the team for TV applications (Smart TVs, set-top boxes). It renders on a WebGL canvas instead of the DOM. This fork maintains compatibility with **Chromium 47** (Samsung Tizen TVs), unlike the upstream which requires modern browsers.
 
-Ver [docs/DEPENDENCIES.md](docs/DEPENDENCIES.md) para más detalles sobre el fork y el versionado.
+See [docs/DEPENDENCIES.md](docs/DEPENDENCIES.md) for more details about the fork and versioning.
 
-## Instalación
+## Installation
 
 ```bash
-# Requiere Node.js >= 22 (solo para tooling, el output es compatible con Chromium 47)
-fnm use 22   # o nvm use 22
+# Requires Node.js >= 22 (only for tooling, the output is compatible with Chromium 47)
+fnm use 22   # or nvm use 22
 
 npm install
 npm run dev
 ```
 
-## Navegación
+## Navigation
 
-- **Flechas arriba/abajo**: mover el foco en el sidebar
-- **Enter**: seleccionar un tema
-- **Flechas**: navegar dentro de los ejemplos
+- **Up/Down arrows**: move focus in the sidebar
+- **Enter**: select a topic
+- **Arrows**: navigate within examples
 
 ## Final example: Streaming Home
 
@@ -40,32 +40,44 @@ Use **↑ / ↓** to browse rows. Press **Enter on a card** in either carousel t
 
 The example remembers an `ElementNode` and its row index for focus restoration, not just a movie ID: repeated cards are separate focus targets. Browsing a card clears the blue selection marker. Favorites still use movie IDs, so every copy reflects the same saved state. **←** from the first card or the button returns to the sidebar. Favorites last while this page is mounted.
 
-## Dependencias principales
+## Main Dependencies
 
-| Paquete              | Versión | Rol                              |
+| Package              | Version | Role                             |
 |----------------------|---------|----------------------------------|
-| `@solidtv/renderer`  | 1.6.4   | Motor de renderizado WebGL       |
-| `@solidtv/solid`     | 1.5.0   | Bindings SolidJS para el renderer|
-| `solid-js`           | 1.9.10  | Framework reactivo               |
-| `@solidjs/router`    | 0.16.1  | Router para SolidJS              |
+| `@solidtv/renderer`  | 1.6.4   | WebGL rendering engine           |
+| `@solidtv/solid`     | 1.5.0   | SolidJS bindings for the renderer|
+| `solid-js`           | 1.9.10  | Reactive framework               |
+| `@solidjs/router`    | 0.16.1  | Router for SolidJS               |
 
-## Temas
+## Topics
 
-| #  | Tema             | Carpeta                           | Concepto                                      |
+### SolidJS
+
+| #  | Topic            | Folder                            | Concept                                       |
 |----|------------------|-----------------------------------|-----------------------------------------------|
-| 01 | Signals          | `src/examples/01-signals/`        | `createSignal` básico (contador)              |
+| 00 | Lifecycle        | `src/examples/00-lifecycle/`      | `onMount`, `onCleanup` and component lifecycle|
+| 01 | Signals          | `src/examples/01-signals/`        | Basic `createSignal` (counter)                |
 | 02 | Effects          | `src/examples/02-effects/`        | `createEffect` + `onMount`/`onCleanup`        |
-| 03 | Memos            | `src/examples/03-memos/`          | `createMemo` derivando un valor               |
-| 04 | Control Flow     | `src/examples/04-control-flow/`   | `Show`, `For` y `Switch`/`Match`              |
-| 05 | Stores           | `src/examples/05-stores/`         | `createStore` con un objeto anidado           |
-| 06 | Context          | `src/examples/06-context/`        | `createContext`/`useContext` compartiendo estado|
-| 07 | Resources        | `src/examples/07-resources/`      | `createResource` simulando un fetch           |
-| 08 | View & Text      | `src/examples/08-view-text/`      | Uso de `View` y `Text`                        |
-| 09 | Styles           | `src/examples/09-styles/`         | Estilos, colores, bordes, sombras             |
-| 10 | Row & Column     | `src/examples/10-row-column/`     | `Row` y `Column` con navegación automática    |
-| 11 | Focus Management | `src/examples/11-focus-management/`| `useFocusManager`, autofocus, onFocus/onBlur |
-| 12 | Remote Keys      | `src/examples/12-remote-keys/`    | keyMap y manejo de `onEnter`/`onLeft`/etc.    |
-| 13 | Routing          | `src/examples/13-routing/`        | Router y Route con 2 pantallas                |
-| 14 | Animations       | `src/examples/14-animations/`     | Animación simple con animate                  |
-| 15 | Images           | `src/examples/15-images/`         | Carga de una imagen/textura                   |
-| 16 | Large Lists      | `src/examples/16-large-lists/`    | Lista larga con scroll/virtualización         |
+| 03 | Memos            | `src/examples/03-memos/`          | `createMemo` for derived values               |
+| 04 | Control Flow     | `src/examples/04-control-flow/`   | `Show`, `For` and `Switch`/`Match`            |
+| 05 | Stores           | `src/examples/05-stores/`         | `createStore` with nested objects             |
+| 06 | Context          | `src/examples/06-context/`        | `createContext`/`useContext` for shared state  |
+| 07 | Resources        | `src/examples/07-resources/`      | `createResource` simulating a fetch           |
+| 08 | Batch & Untrack  | `src/examples/08-batch-untrack/`  | `batch` groups updates; `untrack` reads without subscribing |
+
+### SolidTV
+
+| #  | Topic            | Folder                            | Concept                                       |
+|----|------------------|-----------------------------------|-----------------------------------------------|
+| 09 | View & Text      | `src/examples/09-view-text/`      | Using `view` and `text` elements              |
+| 10 | Styles           | `src/examples/10-styles/`         | Styles, colors, borders, shadows              |
+| 11 | Theming          | `src/examples/11-theming/`        | Spread styles, `$state` theming, dynamic themes|
+| 12 | Row & Column     | `src/examples/12-row-column/`     | `Row` and `Column` with automatic navigation  |
+| 13 | Focus Management | `src/examples/13-focus-management/`| `useFocusManager`, autofocus, onFocus/onBlur |
+| 14 | Remote Keys      | `src/examples/14-remote-keys/`    | keyMap and `onEnter`/`onLeft`/`onRight` handling |
+| 15 | Routing          | `src/examples/15-routing/`        | Router and Route with 2 screens               |
+| 16 | Animations       | `src/examples/16-animations/`     | Simple animation with animate                 |
+| 17 | Images           | `src/examples/17-images/`         | Loading an image/texture                      |
+| 18 | Large Lists      | `src/examples/18-large-lists/`    | Large list with scroll/virtualization         |
+| 19 | Grid             | `src/examples/19-grid/`           | Grid component with 2D navigation             |
+| 20 | Streaming Home   | `src/examples/20-streaming-home/` | Reactive hero, carousels and shared favorites |
