@@ -3,6 +3,10 @@ import { Column, Row, Image } from '@solidtv/solid/primitives'
 
 const IMG = '/images_demo.png'
 
+// --- Option A: wrapper simulating a border ---
+// Transparent wrapper that turns orange on focus; inner image offset by 4px.
+// The $focus state system does not revert shader props like border on blur,
+// so we use the wrapper's background color as a visual border instead.
 const imgWrapper = {
   color: 0x00000000,
   borderRadius: 14,
@@ -12,14 +16,17 @@ const imgWrapper = {
 export default function ImagesExample() {
   const [showFallback, setShowFallback] = createSignal(false)
 
+  // --- Option B: onFocus/onBlur signal ---
+  const [signalFocused, setSignalFocused] = createSignal(false)
+
   return (
     <Column gap={16} scroll="auto" style={{ width: 1400, height: 850 }}>
 
-      {/* Section: src on a view — basic image */}
+      {/* ── Option A: wrapper with color as border ── */}
       <Column gap={6} style={{ width: 1300, height: 240 }}>
         <view height={26} width={700} skipFocus>
           <text style={{ fontSize: 24, color: 0xf0e6d3ff }}>
-            {'src on view — load an image directly'}
+            {'Option A — wrapper with color as border'}
           </text>
         </view>
         <Row gap={16} scroll="none" style={{ width: 1200, height: 200 }}>
@@ -39,7 +46,28 @@ export default function ImagesExample() {
         </Row>
       </Column>
 
-      {/* Section: Image component — placeholder + fallback */}
+      {/* ── Option B: onFocus/onBlur with signal ── */}
+      <Column gap={6} style={{ width: 1300, height: 240 }}>
+        <view height={26} width={700} skipFocus>
+          <text style={{ fontSize: 24, color: 0xf0e6d3ff }}>
+            {'Option B — onFocus/onBlur signal (manual control)'}
+          </text>
+        </view>
+        <Row gap={16} scroll="none" style={{ width: 1200, height: 200 }}>
+          <view width={268} height={188}
+            border={signalFocused()
+              ? { width: 4, color: 0xf59e0bff }
+              : { width: 0, color: 0x00000000 }}
+            borderRadius={14}
+            onFocus={() => setSignalFocused(true)}
+            onBlur={() => setSignalFocused(false)}>
+            <view x={4} y={4} width={260} height={180} borderRadius={12}
+              src={IMG} color={0xffffffff} />
+          </view>
+        </Row>
+      </Column>
+
+      {/* ── Image component — placeholder + fallback ── */}
       <Column gap={6} style={{ width: 1300, height: 240 }}>
         <view height={26} width={700} skipFocus>
           <text style={{ fontSize: 24, color: 0xf0e6d3ff }}>
@@ -62,7 +90,7 @@ export default function ImagesExample() {
         </Row>
       </Column>
 
-      {/* Section: Toggle fallback */}
+      {/* ── Toggle fallback ── */}
       <Column gap={6} style={{ width: 1300, height: 100 }}>
         <view height={26} width={700} skipFocus>
           <text style={{ fontSize: 24, color: 0xf0e6d3ff }}>
@@ -80,7 +108,7 @@ export default function ImagesExample() {
         </Row>
       </Column>
 
-      {/* Section: Sizing */}
+      {/* ── Sizing ── */}
       <Column gap={6} style={{ width: 1300, height: 180 }}>
         <view height={26} width={700} skipFocus>
           <text style={{ fontSize: 24, color: 0xf0e6d3ff }}>
@@ -106,14 +134,14 @@ export default function ImagesExample() {
         </Row>
       </Column>
 
-      {/* How it works */}
-      <view width={700} height={280} color={0x1a1a2eff} borderRadius={10}
+      {/* ── How it works ── */}
+      <view width={700} height={300} color={0x1a1a2eff} borderRadius={10}
         $focus={{ color: 0x2d2b55ff, borderRadius: 10 }}>
         <text x={15} y={10} style={{ fontSize: 22, color: 0xf0e6d3ff }}>
           {'How it works:'}
         </text>
         <text x={15} y={40} style={{ fontSize: 17, color: 0x9ca3afff, width: 660, contain: 'width' }}>
-          {'Set src on any view to load an image as its texture. Important: set color to 0xffffffff (white) — color acts as a tint multiplier, so a dark color darkens the image. For focus on images, wrap them in a container view (no src) with color: transparent and $focus color (e.g. orange). The image sits inside with a 4px offset so the wrapper color shows as a border. Never use $focus directly on views with src or with border — the state system does not revert those correctly on blur. The Image component adds placeholder (while loading) and fallback (on error). Lightning caches textures — same src reuses the same GPU texture.'}
+          {'Set src on any view to load an image as its texture. Important: set color to 0xffffffff (white) — color acts as a tint multiplier, so a dark color darkens the image.\n\nFocus border on images — $focus does not revert shader props (border, shadow) on blur. Two workarounds:\n• Option A: wrap the image in a container with color: transparent and $focus color. The 4px offset reveals the wrapper color as a visual border. Simple and reliable.\n• Option B: use onFocus/onBlur callbacks with a signal to reactively toggle the border. Bypasses the $focus state system entirely. More explicit, works with any shader prop.'}
         </text>
       </view>
     </Column>

@@ -40,7 +40,7 @@ export const topics: Topic[] = [
     id: '04-control-flow',
     label: 'Control Flow (Show/For)',
     path: '/04-control-flow',
-    description: 'Show, For and Switch/Match',
+    description: 'Show, For, Index, Switch/Match and Dynamic',
     category: 'SolidJS',
   },
   {

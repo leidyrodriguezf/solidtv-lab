@@ -59,7 +59,7 @@ The example remembers an `ElementNode` and its row index for focus restoration, 
 | 01 | Signals          | `src/examples/01-signals/`        | Basic `createSignal` (counter)                |
 | 02 | Effects          | `src/examples/02-effects/`        | `createEffect` + `onMount`/`onCleanup`        |
 | 03 | Memos            | `src/examples/03-memos/`          | `createMemo` for derived values               |
-| 04 | Control Flow     | `src/examples/04-control-flow/`   | `Show`, `For` and `Switch`/`Match`            |
+| 04 | Control Flow     | `src/examples/04-control-flow/`   | `Show`, `For`, `Index`, `Switch`/`Match` and `Dynamic` |
 | 05 | Stores           | `src/examples/05-stores/`         | `createStore` with nested objects             |
 | 06 | Context          | `src/examples/06-context/`        | `createContext`/`useContext` for shared state  |
 | 07 | Resources        | `src/examples/07-resources/`      | `createResource` simulating a fetch           |
