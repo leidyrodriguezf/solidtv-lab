@@ -40,6 +40,24 @@ Use **↑ / ↓** to browse rows. Press **Enter on a card** in either carousel t
 
 The example remembers an `ElementNode` and its row index for focus restoration, not just a movie ID: repeated cards are separate focus targets. Browsing a card clears the blue selection marker. Favorites still use movie IDs, so every copy reflects the same saved state. **←** from the first card or the button returns to the sidebar. Favorites last while this page is mounted.
 
+## Documentation
+
+### SolidJS
+- [SolidJS Official Docs](https://docs.solidjs.com/) — Guides, tutorials, and API reference
+- [SolidJS GitHub](https://github.com/solidjs/solid)
+- [@solidjs/router GitHub](https://github.com/solidjs/solid-router)
+
+### SolidTV (fork of LightningTV for Chromium 47)
+- [@solidtv/solid GitHub](https://github.com/solid-tv/solid) — SolidJS bindings for the renderer
+- [@solidtv/renderer GitHub](https://github.com/solid-tv/renderer) — WebGL rendering engine
+
+### LightningTV (upstream)
+- [LightningTV Solid Docs](https://lightningtv.dev/solid) — Guides for the upstream Solid integration (API is similar to `@solidtv/solid`)
+- [@lightningtv/solid GitHub](https://github.com/lightning-tv/solid)
+- [@lightningjs/renderer GitHub](https://github.com/lightning-js/renderer)
+
+> **Note:** This project uses `@solidtv/*`, not `@lightningtv/*`. The upstream docs are useful as reference since the APIs are similar, but there are differences — see [docs/DEPENDENCIES.md](docs/DEPENDENCIES.md).
+
 ## Main Dependencies
 
 | Package              | Version | Role                             |
